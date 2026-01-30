@@ -13,7 +13,9 @@
     <h1 class="title">Dev. JUN</h1>
     <div class="line"></div>
     <p class="subtitle">Discord Server & Bot Developer</p>
-    <button class="main-btn" onclick="scrollToSection('portfolio')">포트폴리오 바로가기</button>
+    <button class="main-btn" onclick="scrollToSection('portfolio')">
+      포트폴리오 바로가기
+    </button>
   </section>
 
   <!-- About -->
@@ -23,8 +25,10 @@
     </div>
     <div class="about-text">
       <h2>About Me</h2>
-      <p>안녕하세요! 디스코드 서버 제작 및 봇 개발을 좋아하는 학생 개발자 Dev. JUN입니다.<br>
-         사용자에게 쉽고 편리한 서비스를 제공하기 위해 항상 노력하고 있습니다.</p>
+      <p>
+        안녕하세요! 디스코드 서버 제작 및 봇 개발을 좋아하는 학생 개발자 Dev. JUN입니다.<br>
+        사용자에게 쉽고 편리한 서비스를 제공하기 위해 항상 노력하고 있습니다.
+      </p>
     </div>
   </section>
 
@@ -32,14 +36,14 @@
   <section class="section portfolio fade-up" id="portfolio">
     <h2>Portfolio</h2>
     <div class="portfolio-box">
-      <div class="card fade-up">
+      <div class="card">
         <h3>🛠️ 서버 제작 포트폴리오</h3>
         <p>디스코드 서버 구조 설계 및 디자인</p>
         <button class="private-btn">업로드</button>
       </div>
-      <div class="card fade-up">
+      <div class="card">
         <h3>🤖 봇 개발 포트폴리오</h3>
-        <p>Python 디스코드 봇 개발</p>
+        <p>Python 기반 디스코드 봇 개발</p>
         <button class="private-btn">업로드</button>
       </div>
     </div>
@@ -58,34 +62,46 @@
     </div>
   </section>
 
-  <!-- Modal Inquiry -->
+  <!-- 문의 모달 -->
   <div id="modalInquiry" class="modal">
-    <div class="modal-content">
+    <div class="modal-content modern contact-modal">
       <span class="close">&times;</span>
       <h3>문의하기</h3>
       <form action="https://formsubmit.co/el/paxoca" method="POST" target="_blank">
         <input type="text" name="name" placeholder="이름" required />
         <input type="email" name="email" placeholder="이메일" required />
-        <textarea name="message" placeholder="내용" required></textarea>
+        <textarea name="message" placeholder="문의 내용" required></textarea>
         <button type="submit" class="submit-btn">전송</button>
       </form>
     </div>
   </div>
 
-  <!-- Modal Contact -->
+  <!-- 연락 모달 -->
   <div id="modalContact" class="modal">
-    <div class="modal-content">
+    <div class="modal-content modern contact-modal">
       <span class="close">&times;</span>
       <h3>연락하기</h3>
       <form action="https://formsubmit.co/el/paxoca" method="POST" target="_blank">
         <input type="text" name="name" placeholder="이름" required />
         <input type="email" name="email" placeholder="이메일" required />
-        <textarea name="message" placeholder="내용" required></textarea>
+        <textarea name="message" placeholder="연락 내용" required></textarea>
         <button type="submit" class="submit-btn">전송</button>
       </form>
     </div>
   </div>
 
+  <!-- 포트폴리오 업로드 모달 -->
+  <div id="modalUpload" class="modal">
+    <div class="modal-content modern">
+      <span class="close">&times;</span>
+      <h3>포트폴리오 업로드</h3>
+      <input type="text" id="pfTitle" placeholder="제목" />
+      <textarea id="pfDesc" placeholder="설명"></textarea>
+      <input type="file" id="pfImage" accept="image/*" />
+      <button class="submit-btn" id="uploadConfirm">업로드</button>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
-</html>
+      </html>
