@@ -33,3 +33,4 @@ window.onclick = (e) => {
   if (e.target == modalInquiry) modalInquiry.style.display = "none";
   if (e.target == modalContact) modalContact.style.display = "none";
 };
+
