@@ -44,6 +44,39 @@ uploadBtns.forEach(btn => {
   btn.onclick = () => modalUpload.style.display = "block";
 });
 
+// LocalStorage 저장/불러오기
+function savePortfolio() {
+  const cards = [];
+  document.querySelectorAll(".portfolio-box .card:not(.template)").forEach(card => {
+    cards.push({
+      title: card.querySelector("h3").innerText,
+      desc: card.querySelector("p").innerText,
+      img: card.querySelector("img")?.src || ""
+    });
+  });
+  localStorage.setItem("portfolioData", JSON.stringify(cards));
+}
+
+function loadPortfolio() {
+  const data = JSON.parse(localStorage.getItem("portfolioData") || "[]");
+  data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card fade-up show";
+    card.innerHTML = `
+      <button class="delete-btn">×</button>
+      ${item.img ? `<img src="${item.img}" class="pf-img">` : ""}
+      <h3>${item.title}</h3>
+      <p>${item.desc}</p>
+    `;
+    card.querySelector(".delete-btn").onclick = () => {
+      card.remove();
+      savePortfolio();
+    };
+    portfolioBox.appendChild(card);
+  });
+}
+
+// 카드 업로드
 uploadConfirm.onclick = () => {
   if (!pfTitle.value || !pfDesc.value || !pfImage.files[0]) return;
 
@@ -58,10 +91,13 @@ uploadConfirm.onclick = () => {
       <p>${pfDesc.value}</p>
     `;
 
-    // 삭제 버튼
-    card.querySelector(".delete-btn").onclick = () => card.remove();
+    card.querySelector(".delete-btn").onclick = () => {
+      card.remove();
+      savePortfolio();
+    };
 
     portfolioBox.appendChild(card);
+    savePortfolio();
 
     modalUpload.style.display = "none";
     pfTitle.value = "";
@@ -70,3 +106,6 @@ uploadConfirm.onclick = () => {
   };
   reader.readAsDataURL(pfImage.files[0]);
 };
+
+// 페이지 로드 시 LocalStorage에서 불러오기
+loadPortfolio();
