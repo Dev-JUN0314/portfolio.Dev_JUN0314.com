@@ -27,64 +27,52 @@ button {
   transition:0.3s;
 }
 
-.main-btn {
-  background:#ff6b6b;
-  color:#fff;
-}
-
+.main-btn { background:#ff6b6b; color:#fff; }
 .main-btn:hover { background:#ff5252; }
 
-.private-btn {
-  background:#4a90e2;
-  color:#fff;
-  margin-top:10px;
-}
+.private-btn { background:#4a90e2; color:#fff; margin-top:10px; }
+.submit-btn { background:linear-gradient(90deg,#ff6b6b,#ff8e53); color:#fff; width:100%; margin-top:10px; }
 
-.submit-btn {
-  background:linear-gradient(90deg,#ff6b6b,#ff8e53);
-  color:#fff;
-  width:100%;
-  margin-top:10px;
-}
-
-.portfolio-box {
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
+/* Portfolio */
+.portfolio-box { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
 .card {
   background:#fff;
   width:260px;
   padding:20px;
   border-radius:12px;
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  position:relative;
+  transition:0.3s;
 }
+.card:hover { transform:translateY(-5px); }
+.pf-img { width:100%; height:160px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
 
-.card:hover {
-  transform:translateY(-5px);
+/* 삭제 버튼 */
+.delete-btn {
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:#ff4d4f;
+  color:#fff;
+  font-size:18px;
+  line-height:28px;
+  font-weight:bold;
+  cursor:pointer;
+  opacity:0;
+  transition:0.2s;
 }
+.card:hover .delete-btn { opacity:1; }
 
-.pf-img {
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:8px;
-  margin-bottom:10px;
-}
+/* About 이미지 */
+.about-image img { width:250px; border-radius:16px; }
 
-.about-image img {
-  width:250px;
-  border-radius:16px;
-}
+/* Contact buttons */
+.contact-buttons { display:flex; justify-content:center; gap:20px; }
 
-.contact-buttons {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
-
+/* 모달 */
 .modal {
   display:none;
   position:fixed;
@@ -92,7 +80,6 @@ button {
   background:rgba(0,0,0,0.6);
   z-index:999;
 }
-
 .modal-content {
   background:#fff;
   margin:10% auto;
@@ -102,12 +89,10 @@ button {
   max-width:400px;
   position:relative;
 }
-
 .modal-content.modern {
   background:linear-gradient(180deg,#fff,#f1f3f6);
   box-shadow:0 20px 40px rgba(0,0,0,0.25);
 }
-
 .modal-content input,
 .modal-content textarea {
   width:100%;
@@ -116,7 +101,6 @@ button {
   border-radius:6px;
   border:1px solid #ddd;
 }
-
 .close {
   position:absolute;
   top:10px;
@@ -125,17 +109,12 @@ button {
   cursor:pointer;
 }
 
-.fade-up {
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.6s;
-}
+/* Fade-up 애니메이션 */
+.fade-up { opacity:0; transform:translateY(40px); transition:0.6s; }
+.fade-up.show { opacity:1; transform:translateY(0); }
 
-.fade-up.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
+/* 반응형 */
 @media(max-width:768px){
-  .portfolio-box { flex-direction:column; }
-}
+  .portfolio-box { flex-direction:column; align-items:center; }
+  .about-image img{width:200px;}
+                  }
