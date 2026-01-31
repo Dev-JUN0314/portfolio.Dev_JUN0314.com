@@ -82,7 +82,6 @@ function addPortfolioCard(imgSrcArray,title,desc){
   const tagText = splitTitle[0].trim();
   const mainTitle = splitTitle[1]? splitTitle[1].trim():"";
 
-  // 슬라이더 div
   const sliderDiv = document.createElement("div");
   sliderDiv.className="slider";
   imgSrcArray.forEach(src=>{
