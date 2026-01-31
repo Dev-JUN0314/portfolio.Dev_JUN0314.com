@@ -1,4 +1,4 @@
-body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f7f7f7; color:#111; }
+body { margin:0; font-family:'Segoe UI',sans-serif; background:#f7f7f7; color:#111; }
 .section { padding:80px 20px; text-align:center; }
 h1,h2,h3 { margin:0 0 20px 0; }
 .line { width:50px; height:3px; background:#ff6b6b; margin:20px auto; border-radius:3px; }
@@ -11,31 +11,21 @@ button { cursor:pointer; border:none; border-radius:5px; padding:10px 20px; font
 .private-btn:hover { background:#357ab8; }
 .submit-btn { background:#2ecc71; color:#fff; margin-top:10px; width:100%; }
 .submit-btn:hover { background:#27ae60; }
-
-/* 삭제 버튼 */
 .delete-btn { background:#ff6b6b; color:#fff; margin-top:10px; width:100%; cursor:pointer; border:none; border-radius:5px; padding:8px; font-weight:600; transition:0.3s; }
 .delete-btn:hover{background:#ff5252;}
 
-/* Portfolio 카드 */
+/* 카드 */
 .portfolio-box { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
 .card { background:#fff; padding:20px; border-radius:10px; width:100%; max-width:250px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition:0.3s; display:flex; flex-direction:column; align-items:center; position:relative; }
 .card:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
-.portfolio-img { width:100%; max-width:100%; border-radius:10px; margin-bottom:10px; }
 
-/* 카드 태그 배지 */
-.card-tag {
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:#ff6b6b;
-  color:#fff;
-  font-size:12px;
-  font-weight:600;
-  padding:3px 8px;
-  border-radius:5px;
-  z-index:10;
-  pointer-events:none;
-}
+/* 카드 태그 */
+.card-tag { position:absolute; top:10px; left:10px; background:#bbb; color:#fff; font-size:12px; font-weight:600; padding:3px 8px; border-radius:5px; z-index:10; pointer-events:none; }
+
+/* 슬라이더 */
+.slider { display:flex; overflow-x:auto; scroll-behavior:smooth; gap:5px; width:100%; }
+.slider img { max-width:100%; flex-shrink:0; border-radius:10px; }
+.slider::-webkit-scrollbar { display:none; }
 
 /* About 이미지 */
 .about-image img { width:250px; border-radius:15px; margin-bottom:20px; }
@@ -65,4 +55,4 @@ button { cursor:pointer; border:none; border-radius:5px; padding:10px 20px; font
   .modal-content { max-width:100%; padding:20px; }
   .card { max-width:90%; }
   .about-image img{width:180px;}
-             }
+       }
