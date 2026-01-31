@@ -52,13 +52,21 @@ uploadConfirm.onclick = () => {
     const card = document.createElement("div");
     card.className = "card fade-up show";
     card.innerHTML = `
+      <button class="delete-btn">×</button>
       <img src="${reader.result}" class="pf-img">
       <h3>${pfTitle.value}</h3>
       <p>${pfDesc.value}</p>
     `;
+
+    // 삭제 버튼
+    card.querySelector(".delete-btn").onclick = () => card.remove();
+
     portfolioBox.appendChild(card);
+
     modalUpload.style.display = "none";
-    pfTitle.value = pfDesc.value = pfImage.value = "";
+    pfTitle.value = "";
+    pfDesc.value = "";
+    pfImage.value = "";
   };
   reader.readAsDataURL(pfImage.files[0]);
 };
