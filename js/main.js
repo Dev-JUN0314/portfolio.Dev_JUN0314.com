@@ -9,7 +9,6 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) entry.target.classList.add('show');
   });
 }, { threshold: 0.15 });
-
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 // 모달
@@ -23,10 +22,8 @@ const uploadBtns = document.querySelectorAll(".openUpload");
 
 const spans = document.getElementsByClassName("close");
 
-// 초기 상태 모두 숨김
-modalInquiry.style.display = "none";
-modalContact.style.display = "none";
-modalUpload.style.display = "none";
+// 모든 모달 초기 숨김
+[modalInquiry, modalContact, modalUpload].forEach(m => m.style.display = "none");
 
 // 버튼 클릭 시 모달 열기
 btnInquiry.onclick = () => modalInquiry.style.display = "flex";
@@ -48,17 +45,15 @@ uploadBtns.forEach(btn => {
 // 닫기 버튼
 for (let span of spans) {
   span.onclick = () => {
-    modalInquiry.style.display = "none";
-    modalContact.style.display = "none";
-    modalUpload.style.display = "none";
-  }
+    [modalInquiry, modalContact, modalUpload].forEach(m => m.style.display = "none");
+  };
 }
 
 // 모달 외부 클릭 시 닫기
 window.onclick = (e) => {
-  if (e.target == modalInquiry) modalInquiry.style.display = "none";
-  if (e.target == modalContact) modalContact.style.display = "none";
-  if (e.target == modalUpload) modalUpload.style.display = "none";
+  if (e.target === modalInquiry || e.target === modalContact || e.target === modalUpload) {
+    e.target.style.display = "none";
+  }
 };
 
 // 포트폴리오 업로드
@@ -68,7 +63,7 @@ uploadBtn.onclick = () => {
   const title = document.getElementById("uploadTitle").value;
   const desc = document.getElementById("uploadDesc").value;
 
-  if (!img || !title || !desc) {
+  if(!img || !title || !desc){
     alert("모든 항목을 입력해주세요!");
     return;
   }
@@ -82,7 +77,6 @@ uploadBtn.onclick = () => {
       <h3>${title}</h3>
       <p>${desc}</p>
     `;
-
     document.querySelector(".portfolio-box").appendChild(card);
     modalUpload.style.display = "none";
 
