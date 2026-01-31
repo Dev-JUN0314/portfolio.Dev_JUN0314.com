@@ -85,4 +85,23 @@
         <input type="text" name="name" placeholder="이름" required />
         <input type="email" name="email" placeholder="이메일" required />
         <textarea name="message" placeholder="연락 내용" required></textarea>
-        <button type="submit" class="submit-btn">전송</button
+        <button type="submit" class="submit-btn">전송</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 포트폴리오 업로드 모달 -->
+  <div id="modalUpload" class="modal">
+    <div class="modal-content modern">
+      <span class="close">&times;</span>
+      <h3>포트폴리오 업로드</h3>
+      <input type="text" id="pfTitle" placeholder="제목" />
+      <textarea id="pfDesc" placeholder="설명"></textarea>
+      <input type="file" id="pfImage" accept="image/*" />
+      <button class="submit-btn" id="uploadConfirm">업로드</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+        </html>
